@@ -1,27 +1,55 @@
 #include "button.h"
 #include "pwm.h"
+#include "adc.h"
 #include "stm32f303xe.h"
 
 #define ZERO 0
-#define HALF 511
+#define HALF 512
 #define FULL 1023
 
 void EXTI0_IRQHandler(void)
 {
-	update_duty_cycle(ZERO);
+	if (inADCMode == 0)
+	{
+		update_duty_cycle(ZERO);
+	}
 	EXTI -> PR |= EXTI_PR_PR0;
 }
 
 void EXTI1_IRQHandler(void)
 {
-	update_duty_cycle(HALF);
+	if (inADCMode == 0)
+	{
+		update_duty_cycle(HALF);
+	}
 	EXTI -> PR |= EXTI_PR_PR1;
 }
 
 void EXTI2_TSC_IRQHandler(void)
 {
-	update_duty_cycle(FULL);
+	if (inADCMode == 0)
+	{
+		update_duty_cycle(FULL);
+	}
 	EXTI -> PR |= EXTI_PR_PR2;
+}
+
+// ISR for button 3 (to enable/disable ADC mode)
+void EXTI3_IRQHandler(void)
+{
+	if (!inADCMode)
+	{
+		// Enables ADC and blocks other buttons
+		start_ADC1();
+		inADCMode = 1;
+	}
+	else
+	{
+		// Disables ADC - control back to other buttons
+		disable_ADC1();
+		inADCMode = 0;
+	}
+	EXTI -> PR |= EXTI_PR_PR3;
 }
 
 // Sets up button 0
@@ -87,6 +115,8 @@ void setup_button_2(void)
 // Sets up button 3
 void setup_button_3(void)
 {
+	isADCMode = 0;
+	
 	// Sets up PC3 as input
 	RCC -> AHBENR |= RCC_AHBENR_GPIOCEN;
 	GPIOC -> MODER &= ~(GPIO_MODER_MODER3_Msk);

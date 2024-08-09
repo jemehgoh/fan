@@ -9,6 +9,8 @@ static volatile uint32_t prev_press_1;
 static volatile uint32_t prev_press_2;
 static volatile uint32_t prev_press_3;
 
+static volatile uint8_t inADCMode; // Variable to store whether fan is in ADC mode or not
+
 // ISRs for external interrupts (buttons 1-4)
 void EXTI0_IRQHandler(void);
 void EXTI1_IRQHandler(void);
