@@ -1,5 +1,5 @@
 ./objects/button.o: button.c button.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\stdint.h pwm.h timer7.h \
+  C:\Keil_v5\ARM\ARMCLANG\include\stdint.h pwm.h adc.h \
   C:\Users\jerem\AppData\Local\Arm\Packs\Keil\STM32F3xx_DFP\2.2.2\Drivers\CMSIS\Device\ST\STM32F3xx\Include\stm32f303xe.h \
   C:\Users\jerem\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h \
   C:\Users\jerem\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h \

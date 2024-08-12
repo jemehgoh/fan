@@ -3,14 +3,15 @@
 #include "adc.h"
 #include "stm32f303xe.h"
 
-#define ZERO 0
+#define ZERO 1023
 #define HALF 512
-#define FULL 1023
+#define FULL 0
 
 void EXTI0_IRQHandler(void)
 {
 	if (inADCMode == 0)
 	{
+		// Sets duty cycle to 100% (zero power to motor)
 		update_duty_cycle(ZERO);
 	}
 	EXTI -> PR |= EXTI_PR_PR0;
@@ -20,6 +21,7 @@ void EXTI1_IRQHandler(void)
 {
 	if (inADCMode == 0)
 	{
+		// Sets duty cycle to 50% (half power to motor)
 		update_duty_cycle(HALF);
 	}
 	EXTI -> PR |= EXTI_PR_PR1;
@@ -29,6 +31,7 @@ void EXTI2_TSC_IRQHandler(void)
 {
 	if (inADCMode == 0)
 	{
+		// Sets duty cycle to zero (full power to motor)
 		update_duty_cycle(FULL);
 	}
 	EXTI -> PR |= EXTI_PR_PR2;
@@ -115,7 +118,8 @@ void setup_button_2(void)
 // Sets up button 3
 void setup_button_3(void)
 {
-	isADCMode = 0;
+	// Fan not in ADC mode by default
+	inADCMode = 0;
 	
 	// Sets up PC3 as input
 	RCC -> AHBENR |= RCC_AHBENR_GPIOCEN;

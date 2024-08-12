@@ -27,17 +27,52 @@ Project File Date:  08/02/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.21', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-main.c(5): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-    5 | int main()
+compiling pwm.c...
+timer7.c(27): warning: no newline at end of file [-Wnewline-eof]
+   27 | }
+      |  ^
+1 warning generated.
+compiling timer7.c...
+compiling button.c...
+adc.c(33): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   33 | void enable_ADC1()
+      |                 ^
+      |                  void
+adc.c(65): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   65 | uint32_t read_ADC1()
+      |                   ^
+      |                    void
+adc.c(74): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   74 |         uint32_t out = ADC1 -> DR;
+      |                  ^
+adc.c(80): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   80 | void disable_ADC1()
+      |                  ^
+      |                   void
+4 warnings generated.
+compiling adc.c...
+RTE/Device/STM32F303RETx/system_stm32f3xx.c(70): warning: In file included from...
+C:/Users/jerem/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(11): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+   11 |   *              - To use or not the peripheral<92>s drivers in application code(i.e. 
+      |                                                ^
+C:/Users/jerem/AppData/Local/Arm/Packs/Keil/STM32F3xx_DFP/2.2.2/Drivers/CMSIS/Device/ST/STM32F3xx/Include\stm32f3xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+   12 |   *                code will be based on direct access to peripheral<92>s registers 
+      |                                                                     ^
+RTE/Device/STM32F303RETx/system_stm32f3xx.c(273): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  273 |   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
+      |         ^~~~~~~~~~~~~
+3 warnings generated.
+compiling system_stm32f3xx.c...
+main.c(6): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+    6 | int main()
       |         ^
       |          void
 1 warning generated.
 compiling main.c...
-compiling button.c...
 linking...
-Program Size: Code=1348 RO-data=420 RW-data=0 ZI-data=1640  
+Program Size: Code=1900 RO-data=420 RW-data=0 ZI-data=1640  
 FromELF: creating hex file...
-".\Objects\fan.axf" - 0 Error(s), 1 Warning(s).
+".\Objects\fan.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -64,10 +99,10 @@ Package Vendor: Keil
 
    * Component: Keil::Device&Standalone:Startup@1.11.3
       Source file:   Drivers/CMSIS/Device/ST/STM32F3xx/Source/Templates/system_stm32f3xx.c
+      Include file:  Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h
       Source file:   Drivers/CMSIS/Device/ST/STM32F3xx/Source/Templates/arm/startup_stm32f303xe.s
       Source file:   MDK/Device/Source/ARM/STM32F3xx_OPT.s
-      Include file:  Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
