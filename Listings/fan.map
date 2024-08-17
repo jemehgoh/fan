@@ -4,23 +4,19 @@ Component: Arm Compiler for Embedded 6.21 Tool: armlink [5ec1fa00]
 
 Section Cross References
 
-    main.o(.text.main) refers to pwm.o(.text.setup_TIM3) for setup_TIM3
-    main.o(.text.main) refers to pwm.o(.text.start_PWM) for start_PWM
-    main.o(.text.main) refers to adc.o(.text.setup_ADC1) for setup_ADC1
-    main.o(.text.main) refers to button.o(.text.setup_button_0) for setup_button_0
-    main.o(.text.main) refers to button.o(.text.setup_button_1) for setup_button_1
-    main.o(.text.main) refers to button.o(.text.setup_button_2) for setup_button_2
-    main.o(.text.main) refers to button.o(.text.setup_button_3) for setup_button_3
-    main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
-    timer7.o(.text.TIM7_IRQHandler) refers to timer7.o(.bss.counter) for counter
-    timer7.o(.ARM.exidx.text.TIM7_IRQHandler) refers to timer7.o(.text.TIM7_IRQHandler) for [Anonymous Symbol]
-    timer7.o(.text.setup_TIM7) refers to timer7.o(.bss.counter) for counter
-    timer7.o(.text.setup_TIM7) refers to timer7.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
-    timer7.o(.ARM.exidx.text.setup_TIM7) refers to timer7.o(.text.setup_TIM7) for [Anonymous Symbol]
-    timer7.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to timer7.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
-    pwm.o(.ARM.exidx.text.setup_TIM3) refers to pwm.o(.text.setup_TIM3) for [Anonymous Symbol]
-    pwm.o(.ARM.exidx.text.start_PWM) refers to pwm.o(.text.start_PWM) for [Anonymous Symbol]
-    pwm.o(.ARM.exidx.text.update_duty_cycle) refers to pwm.o(.text.update_duty_cycle) for [Anonymous Symbol]
+    adc.o(.text.ADC1_2_IRQHandler) refers to pwm.o(.text.update_duty_cycle) for update_duty_cycle
+    adc.o(.ARM.exidx.text.ADC1_2_IRQHandler) refers to adc.o(.text.ADC1_2_IRQHandler) for [Anonymous Symbol]
+    adc.o(.ARM.exidx.text.calibrate_ADC1) refers to adc.o(.text.calibrate_ADC1) for [Anonymous Symbol]
+    adc.o(.ARM.exidx.text.enable_ADC1) refers to adc.o(.text.enable_ADC1) for [Anonymous Symbol]
+    adc.o(.text.setup_ADC1) refers to adc.o(.text.calibrate_ADC1) for calibrate_ADC1
+    adc.o(.text.setup_ADC1) refers to adc.o(.text.enable_ADC1) for enable_ADC1
+    adc.o(.ARM.exidx.text.setup_ADC1) refers to adc.o(.text.setup_ADC1) for [Anonymous Symbol]
+    adc.o(.text.read_ADC1) refers to adc.o(.text.disable_ADC1) for disable_ADC1
+    adc.o(.ARM.exidx.text.read_ADC1) refers to adc.o(.text.read_ADC1) for [Anonymous Symbol]
+    adc.o(.ARM.exidx.text.disable_ADC1) refers to adc.o(.text.disable_ADC1) for [Anonymous Symbol]
+    adc.o(.text.start_ADC1) refers to adc.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
+    adc.o(.ARM.exidx.text.start_ADC1) refers to adc.o(.text.start_ADC1) for [Anonymous Symbol]
+    adc.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to adc.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
     button.o(.text.EXTI0_IRQHandler) refers to button.o(.bss.inADCMode) for inADCMode
     button.o(.text.EXTI0_IRQHandler) refers to pwm.o(.text.update_duty_cycle) for update_duty_cycle
     button.o(.ARM.exidx.text.EXTI0_IRQHandler) refers to button.o(.text.EXTI0_IRQHandler) for [Anonymous Symbol]
@@ -44,19 +40,23 @@ Section Cross References
     button.o(.text.setup_button_3) refers to button.o(.bss.inADCMode) for inADCMode
     button.o(.text.setup_button_3) refers to button.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
     button.o(.ARM.exidx.text.setup_button_3) refers to button.o(.text.setup_button_3) for [Anonymous Symbol]
-    adc.o(.text.ADC1_2_IRQHandler) refers to pwm.o(.text.update_duty_cycle) for update_duty_cycle
-    adc.o(.ARM.exidx.text.ADC1_2_IRQHandler) refers to adc.o(.text.ADC1_2_IRQHandler) for [Anonymous Symbol]
-    adc.o(.ARM.exidx.text.calibrate_ADC1) refers to adc.o(.text.calibrate_ADC1) for [Anonymous Symbol]
-    adc.o(.ARM.exidx.text.enable_ADC1) refers to adc.o(.text.enable_ADC1) for [Anonymous Symbol]
-    adc.o(.text.setup_ADC1) refers to adc.o(.text.calibrate_ADC1) for calibrate_ADC1
-    adc.o(.text.setup_ADC1) refers to adc.o(.text.enable_ADC1) for enable_ADC1
-    adc.o(.ARM.exidx.text.setup_ADC1) refers to adc.o(.text.setup_ADC1) for [Anonymous Symbol]
-    adc.o(.text.read_ADC1) refers to adc.o(.text.disable_ADC1) for disable_ADC1
-    adc.o(.ARM.exidx.text.read_ADC1) refers to adc.o(.text.read_ADC1) for [Anonymous Symbol]
-    adc.o(.ARM.exidx.text.disable_ADC1) refers to adc.o(.text.disable_ADC1) for [Anonymous Symbol]
-    adc.o(.text.start_ADC1) refers to adc.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
-    adc.o(.ARM.exidx.text.start_ADC1) refers to adc.o(.text.start_ADC1) for [Anonymous Symbol]
-    adc.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to adc.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
+    main.o(.text.main) refers to pwm.o(.text.setup_TIM3) for setup_TIM3
+    main.o(.text.main) refers to pwm.o(.text.start_PWM) for start_PWM
+    main.o(.text.main) refers to adc.o(.text.setup_ADC1) for setup_ADC1
+    main.o(.text.main) refers to button.o(.text.setup_button_0) for setup_button_0
+    main.o(.text.main) refers to button.o(.text.setup_button_1) for setup_button_1
+    main.o(.text.main) refers to button.o(.text.setup_button_2) for setup_button_2
+    main.o(.text.main) refers to button.o(.text.setup_button_3) for setup_button_3
+    main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
+    pwm.o(.ARM.exidx.text.setup_TIM3) refers to pwm.o(.text.setup_TIM3) for [Anonymous Symbol]
+    pwm.o(.ARM.exidx.text.start_PWM) refers to pwm.o(.text.start_PWM) for [Anonymous Symbol]
+    pwm.o(.ARM.exidx.text.update_duty_cycle) refers to pwm.o(.text.update_duty_cycle) for [Anonymous Symbol]
+    timer7.o(.text.TIM7_IRQHandler) refers to timer7.o(.bss.counter) for counter
+    timer7.o(.ARM.exidx.text.TIM7_IRQHandler) refers to timer7.o(.text.TIM7_IRQHandler) for [Anonymous Symbol]
+    timer7.o(.text.setup_TIM7) refers to timer7.o(.bss.counter) for counter
+    timer7.o(.text.setup_TIM7) refers to timer7.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
+    timer7.o(.ARM.exidx.text.setup_TIM7) refers to timer7.o(.text.setup_TIM7) for [Anonymous Symbol]
+    timer7.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to timer7.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
     startup_stm32f303xe.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f303xe.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f303xe.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -189,29 +189,6 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
-    Removing main.o(.text), (0 bytes).
-    Removing main.o(.ARM.exidx.text.main), (8 bytes).
-    Removing main.o(.ARM.use_no_argv), (4 bytes).
-    Removing timer7.o(.text), (0 bytes).
-    Removing timer7.o(.ARM.exidx.text.TIM7_IRQHandler), (8 bytes).
-    Removing timer7.o(.text.setup_TIM7), (120 bytes).
-    Removing timer7.o(.ARM.exidx.text.setup_TIM7), (8 bytes).
-    Removing timer7.o(.text.__NVIC_EnableIRQ), (48 bytes).
-    Removing timer7.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
-    Removing pwm.o(.text), (0 bytes).
-    Removing pwm.o(.ARM.exidx.text.setup_TIM3), (8 bytes).
-    Removing pwm.o(.ARM.exidx.text.start_PWM), (8 bytes).
-    Removing pwm.o(.ARM.exidx.text.update_duty_cycle), (8 bytes).
-    Removing button.o(.text), (0 bytes).
-    Removing button.o(.ARM.exidx.text.EXTI0_IRQHandler), (8 bytes).
-    Removing button.o(.ARM.exidx.text.EXTI1_IRQHandler), (8 bytes).
-    Removing button.o(.ARM.exidx.text.EXTI2_TSC_IRQHandler), (8 bytes).
-    Removing button.o(.ARM.exidx.text.EXTI3_IRQHandler), (8 bytes).
-    Removing button.o(.ARM.exidx.text.setup_button_0), (8 bytes).
-    Removing button.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
-    Removing button.o(.ARM.exidx.text.setup_button_1), (8 bytes).
-    Removing button.o(.ARM.exidx.text.setup_button_2), (8 bytes).
-    Removing button.o(.ARM.exidx.text.setup_button_3), (8 bytes).
     Removing adc.o(.text), (0 bytes).
     Removing adc.o(.ARM.exidx.text.ADC1_2_IRQHandler), (8 bytes).
     Removing adc.o(.ARM.exidx.text.calibrate_ADC1), (8 bytes).
@@ -222,6 +199,29 @@ Removing Unused input sections from the image.
     Removing adc.o(.ARM.exidx.text.disable_ADC1), (8 bytes).
     Removing adc.o(.ARM.exidx.text.start_ADC1), (8 bytes).
     Removing adc.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
+    Removing button.o(.text), (0 bytes).
+    Removing button.o(.ARM.exidx.text.EXTI0_IRQHandler), (8 bytes).
+    Removing button.o(.ARM.exidx.text.EXTI1_IRQHandler), (8 bytes).
+    Removing button.o(.ARM.exidx.text.EXTI2_TSC_IRQHandler), (8 bytes).
+    Removing button.o(.ARM.exidx.text.EXTI3_IRQHandler), (8 bytes).
+    Removing button.o(.ARM.exidx.text.setup_button_0), (8 bytes).
+    Removing button.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
+    Removing button.o(.ARM.exidx.text.setup_button_1), (8 bytes).
+    Removing button.o(.ARM.exidx.text.setup_button_2), (8 bytes).
+    Removing button.o(.ARM.exidx.text.setup_button_3), (8 bytes).
+    Removing main.o(.text), (0 bytes).
+    Removing main.o(.ARM.exidx.text.main), (8 bytes).
+    Removing main.o(.ARM.use_no_argv), (4 bytes).
+    Removing pwm.o(.text), (0 bytes).
+    Removing pwm.o(.ARM.exidx.text.setup_TIM3), (8 bytes).
+    Removing pwm.o(.ARM.exidx.text.start_PWM), (8 bytes).
+    Removing pwm.o(.ARM.exidx.text.update_duty_cycle), (8 bytes).
+    Removing timer7.o(.text), (0 bytes).
+    Removing timer7.o(.ARM.exidx.text.TIM7_IRQHandler), (8 bytes).
+    Removing timer7.o(.text.setup_TIM7), (120 bytes).
+    Removing timer7.o(.ARM.exidx.text.setup_TIM7), (8 bytes).
+    Removing timer7.o(.text.__NVIC_EnableIRQ), (48 bytes).
+    Removing timer7.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
     Removing system_stm32f3xx.o(.text), (0 bytes).
     Removing system_stm32f3xx.o(.ARM.exidx.text.SystemInit), (8 bytes).
     Removing system_stm32f3xx.o(.text.SystemCoreClockUpdate), (282 bytes).
@@ -361,10 +361,10 @@ Image Symbol Table
     [Anonymous Symbol]                       0x080003d8   Section        0  button.o(.text.EXTI3_IRQHandler)
     [Anonymous Symbol]                       0x08000420   Section        0  system_stm32f3xx.o(.text.SystemInit)
     [Anonymous Symbol]                       0x08000434   Section        0  timer7.o(.text.TIM7_IRQHandler)
-    __NVIC_EnableIRQ                         0x08000445   Thumb Code    48  button.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x08000444   Section        0  button.o(.text.__NVIC_EnableIRQ)
-    __NVIC_EnableIRQ                         0x08000475   Thumb Code    48  adc.o(.text.__NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x08000474   Section        0  adc.o(.text.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x08000445   Thumb Code    48  adc.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x08000444   Section        0  adc.o(.text.__NVIC_EnableIRQ)
+    __NVIC_EnableIRQ                         0x08000475   Thumb Code    48  button.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x08000474   Section        0  button.o(.text.__NVIC_EnableIRQ)
     [Anonymous Symbol]                       0x080004a4   Section        0  adc.o(.text.calibrate_ADC1)
     [Anonymous Symbol]                       0x080004d8   Section        0  adc.o(.text.disable_ADC1)
     [Anonymous Symbol]                       0x0800051c   Section        0  adc.o(.text.enable_ADC1)
@@ -602,11 +602,11 @@ Image Symbol Table
 
 Memory Map of the image
 
-  Image Entry point : 0x08000195
+  Image Entry point : 0x08000245
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000910, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00000910, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000910, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000910, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -659,7 +659,7 @@ Memory Map of the image
     0x08000238   0x08000238   0x00000004   Code   RO          195    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
     0x0800023c   0x0800023c   0x00000006   Code   RO          196    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x08000242   0x08000242   0x00000002   PAD
-    0x08000244   0x08000244   0x00000040   Code   RO           89    .text               startup_stm32f303xe.o
+    0x08000244   0x08000244   0x00000040   Code   RO           89  * .text               startup_stm32f303xe.o
     0x08000284   0x08000284   0x00000006   Code   RO          111    .text               c_w.l(heapauxi.o)
     0x0800028a   0x0800028a   0x0000004a   Code   RO          131    .text               c_w.l(sys_stackheap_outer.o)
     0x080002d4   0x080002d4   0x00000012   Code   RO          133    .text               c_w.l(exit.o)
@@ -669,48 +669,53 @@ Memory Map of the image
     0x080002fc   0x080002fc   0x00000002   Code   RO          219    .text               c_w.l(use_no_semi.o)
     0x080002fe   0x080002fe   0x00000000   Code   RO          221    .text               c_w.l(indicate_semi.o)
     0x080002fe   0x080002fe   0x00000002   PAD
-    0x08000300   0x08000300   0x00000054   Code   RO           64    .text.ADC1_2_IRQHandler  adc.o
-    0x08000354   0x08000354   0x0000002c   Code   RO           38    .text.EXTI0_IRQHandler  button.o
-    0x08000380   0x08000380   0x0000002c   Code   RO           40    .text.EXTI1_IRQHandler  button.o
-    0x080003ac   0x080003ac   0x0000002a   Code   RO           42    .text.EXTI2_TSC_IRQHandler  button.o
+    0x08000300   0x08000300   0x00000054   Code   RO            2    .text.ADC1_2_IRQHandler  adc.o
+    0x08000354   0x08000354   0x0000002c   Code   RO           25    .text.EXTI0_IRQHandler  button.o
+    0x08000380   0x08000380   0x0000002c   Code   RO           27    .text.EXTI1_IRQHandler  button.o
+    0x080003ac   0x080003ac   0x0000002a   Code   RO           29    .text.EXTI2_TSC_IRQHandler  button.o
     0x080003d6   0x080003d6   0x00000002   PAD
-    0x080003d8   0x080003d8   0x00000046   Code   RO           44    .text.EXTI3_IRQHandler  button.o
+    0x080003d8   0x080003d8   0x00000046   Code   RO           31    .text.EXTI3_IRQHandler  button.o
     0x0800041e   0x0800041e   0x00000002   PAD
     0x08000420   0x08000420   0x00000012   Code   RO           96    .text.SystemInit    system_stm32f3xx.o
     0x08000432   0x08000432   0x00000002   PAD
-    0x08000434   0x08000434   0x00000010   Code   RO           11    .text.TIM7_IRQHandler  timer7.o
-    0x08000444   0x08000444   0x00000030   Code   RO           48    .text.__NVIC_EnableIRQ  button.o
-    0x08000474   0x08000474   0x00000030   Code   RO           78    .text.__NVIC_EnableIRQ  adc.o
-    0x080004a4   0x080004a4   0x00000032   Code   RO           66    .text.calibrate_ADC1  adc.o
+    0x08000434   0x08000434   0x00000010   Code   RO           73    .text.TIM7_IRQHandler  timer7.o
+    0x08000444   0x08000444   0x00000030   Code   RO           16    .text.__NVIC_EnableIRQ  adc.o
+    0x08000474   0x08000474   0x00000030   Code   RO           35    .text.__NVIC_EnableIRQ  button.o
+    0x080004a4   0x080004a4   0x00000032   Code   RO            4    .text.calibrate_ADC1  adc.o
     0x080004d6   0x080004d6   0x00000002   PAD
-    0x080004d8   0x080004d8   0x00000044   Code   RO           74    .text.disable_ADC1  adc.o
-    0x0800051c   0x0800051c   0x0000003a   Code   RO           68    .text.enable_ADC1   adc.o
+    0x080004d8   0x080004d8   0x00000044   Code   RO           12    .text.disable_ADC1  adc.o
+    0x0800051c   0x0800051c   0x0000003a   Code   RO            6    .text.enable_ADC1   adc.o
     0x08000556   0x08000556   0x00000002   PAD
-    0x08000558   0x08000558   0x00000032   Code   RO            2    .text.main          main.o
+    0x08000558   0x08000558   0x00000032   Code   RO           51    .text.main          main.o
     0x0800058a   0x0800058a   0x00000002   PAD
-    0x0800058c   0x0800058c   0x00000076   Code   RO           70    .text.setup_ADC1    adc.o
+    0x0800058c   0x0800058c   0x00000076   Code   RO            8    .text.setup_ADC1    adc.o
     0x08000602   0x08000602   0x00000002   PAD
-    0x08000604   0x08000604   0x0000009c   Code   RO           25    .text.setup_TIM3    pwm.o
-    0x080006a0   0x080006a0   0x00000070   Code   RO           46    .text.setup_button_0  button.o
-    0x08000710   0x08000710   0x00000070   Code   RO           50    .text.setup_button_1  button.o
-    0x08000780   0x08000780   0x00000070   Code   RO           52    .text.setup_button_2  button.o
-    0x080007f0   0x080007f0   0x0000007c   Code   RO           54    .text.setup_button_3  button.o
-    0x0800086c   0x0800086c   0x0000002e   Code   RO           76    .text.start_ADC1    adc.o
+    0x08000604   0x08000604   0x0000009c   Code   RO           60    .text.setup_TIM3    pwm.o
+    0x080006a0   0x080006a0   0x00000070   Code   RO           33    .text.setup_button_0  button.o
+    0x08000710   0x08000710   0x00000070   Code   RO           37    .text.setup_button_1  button.o
+    0x08000780   0x08000780   0x00000070   Code   RO           39    .text.setup_button_2  button.o
+    0x080007f0   0x080007f0   0x0000007c   Code   RO           41    .text.setup_button_3  button.o
+    0x0800086c   0x0800086c   0x0000002e   Code   RO           14    .text.start_ADC1    adc.o
     0x0800089a   0x0800089a   0x00000002   PAD
-    0x0800089c   0x0800089c   0x00000034   Code   RO           27    .text.start_PWM     pwm.o
-    0x080008d0   0x080008d0   0x00000014   Code   RO           29    .text.update_duty_cycle  pwm.o
+    0x0800089c   0x0800089c   0x00000034   Code   RO           62    .text.start_PWM     pwm.o
+    0x080008d0   0x080008d0   0x00000014   Code   RO           64    .text.update_duty_cycle  pwm.o
     0x080008e4   0x080008e4   0x0000001a   Code   RO          202    x$fpl$fpinit        fz_wm.l(fpinit.o)
     0x080008fe   0x080008fe   0x00000002   PAD
     0x08000900   0x08000900   0x00000010   Data   RO          277    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000910, Size: 0x00000668, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x08000910, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x08000910, Size: 0x00000668, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000        -       0x00000060   Zero   RW          142    .bss                c_w.l(libspace.o)
-    0x20000060        -       0x00000004   Zero   RW           17    .bss.counter        timer7.o
-    0x20000064        -       0x00000001   Zero   RW           56    .bss.inADCMode      button.o
+    0x20000060        -       0x00000004   Zero   RW           79    .bss.counter        timer7.o
+    0x20000064        -       0x00000001   Zero   RW           43    .bss.inADCMode      button.o
     0x20000065   0x08000910   0x00000003   PAD
     0x20000068        -       0x00000200   Zero   RW           87    HEAP                startup_stm32f303xe.o
     0x20000268        -       0x00000400   Zero   RW           86    STACK               startup_stm32f303xe.o
