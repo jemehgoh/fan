@@ -17,7 +17,7 @@ void EXTI1_IRQHandler(void);
 void EXTI2_TSC_IRQHandler(void);
 void EXTI3_IRQHandler(void);
 
-// Setup functions for the four buttons (to be connected to PC0-PC4)
+// Setup functions for the four buttons (to be connected to PC0-PC3)
 void setup_button_0(void);
 void setup_button_1(void);
 void setup_button_2(void);

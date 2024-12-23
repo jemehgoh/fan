@@ -23,6 +23,16 @@ The buttons used for switching between modes are active-high buttons with 10 kil
 
 Each of the pins PC1-PC4 is then connected to an interrupt line, which is asserted when the corresponding button is pressed.
 
+The schematic for the speed control circuit is shown below.
+
+![Fan speed control circuit schematic](schematics/speed_control_circuit.png)
+
+### Motor driver
+
+The schematic for the motor driver circuit is shown below.
+
+![Motor driver circuit schematic](schematics/motor_driver_circuit.png)
+
 
 
 

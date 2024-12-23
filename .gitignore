@@ -4,9 +4,10 @@ fan.uvoptx
 fan.uvprojx
 
 # other folders
-DebugConfig/
-Listings/
-Objects/
-RTE/
+/DebugConfig/
+/Listings/
+/Objects/
+/RTE/
 
 
+EventRecorderStub.scvd
